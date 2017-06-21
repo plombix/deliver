@@ -34,5 +34,8 @@ DEPENDENCIES
   rspec
   rspec-core
 
+RUBY VERSION
+   ruby 2.3.4p301
+
 BUNDLED WITH
-   1.13.6
+   1.15.1

@@ -3,6 +3,8 @@ class DeliveryRouter
   require_relative 'restaurant'
   require_relative 'rider'
 
+  
+
   def initialize(restaurants, customers, riders)
     curated_params(restaurants, customers, riders)
     @restaurants = restaurants
@@ -10,16 +12,20 @@ class DeliveryRouter
     @riders = riders
   end
 
-  def add_order
+  def add_order(param)
+  	
   end
 
-  def clear_orders
+  def clear_orders(param)
+  	[]
   end
 
-  def route
+  def route(param)
+  	[]
   end
 
-  def delivery_time
+  def delivery_time(param)
+  	[]
   end
 
   private
