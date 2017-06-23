@@ -21,8 +21,5 @@ require 'pry'
 @delivery_router = DeliveryRouter.new(@restaurants, @customers, @riders)
 @delivery_router.add_order(customer: 1, restaurant: 3)
 @delivery_router.clear_orders(customer: 2)
- route = @delivery_router.route(rider: 2)
-puts @delivery_router.inspect
-puts @customers.inspect
-puts @riders.inspect
-puts @restaurants.inspect
+ @delivery_router.route(rider: 2)
+ @delivery_router.delivery_time(customer: 1)

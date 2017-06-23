@@ -1,9 +1,10 @@
+# Restaurant
 class Restaurant
-  PARAMS = [
-    :id,
-    :cooking_time,
-    :x,
-    :y
+  PARAMS = %i[
+    id
+    cooking_time
+    x
+    y
   ].freeze
 
   attr_accessor :id, :cooking_time, :x, :y
@@ -17,6 +18,7 @@ class Restaurant
   end
 
   def check_form
+    # check attributes from outside of class
     args = {}
     args[:id] = id
     args[:x] = x
@@ -27,16 +29,18 @@ class Restaurant
 
   private
 
+  # basic argument verification (type, parameters..)
+
   def validate(args)
     if args.keys.sort == PARAMS.sort
       unless Float(args[:x]) &&
              Float(args[:y]) &&
              Float(args[:id]) &&
              Float(args[:cooking_time])
-        fail "Wrong Restaurant params type: #{args}"
+        raise "Wrong Restaurant params type: #{args}"
       end
     else
-      fail "Illformed Restaurant params: #{args}"
+      raise "Illformed Restaurant params: #{args}"
     end
   end
 end

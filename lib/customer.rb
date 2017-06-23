@@ -1,7 +1,8 @@
+# Customer
 class Customer
-  PARAMS = [:id,
-            :x,
-            :y].freeze
+  PARAMS = %i[id
+              x
+              y].freeze
 
   attr_accessor :id, :x, :y
 
@@ -13,6 +14,7 @@ class Customer
   end
 
   def check_form
+    # check attributes from outside of class
     args = {}
     args[:id] = id
     args[:x] = x
@@ -22,13 +24,15 @@ class Customer
 
   private
 
+  # basic argument verification (type, parameters..)
+
   def validate(args)
     if args.keys.sort == PARAMS.sort
       unless Float(args[:x]) && Float(args[:y]) && Float(args[:id])
-        fail "Wrong Customer params type: #{args}"
+        raise "Wrong Customer params type: #{args}"
       end
     else
-      fail "Illformed Customer params: #{args}"
+      raise "Illformed Customer params: #{args}"
     end
   end
 end

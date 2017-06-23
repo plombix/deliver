@@ -1,9 +1,10 @@
+# Rider
 class Rider
-  PARAMS = [
-    :id,
-    :speed,
-    :x,
-    :y
+  PARAMS = %i[
+    id
+    speed
+    x
+    y
   ].freeze
 
   attr_accessor :id, :speed, :x, :y
@@ -17,6 +18,7 @@ class Rider
   end
 
   def check_form
+    # check attributes from outside of class
     args = {}
     args[:id] = id
     args[:x] = x
@@ -27,16 +29,18 @@ class Rider
 
   private
 
+  # basic argument verification (type, parameters..)
+
   def validate(args)
     if args.keys.sort == PARAMS.sort
       unless Float(args[:x]) &&
              Float(args[:y]) &&
              Float(args[:id]) &&
              Float(args[:speed])
-        fail "Wrong Rider params type: #{args}"
+        raise "Wrong Rider params type: #{args}"
       end
     else
-      fail "Illformed Rider params: #{args}"
+      raise "Illformed Rider params: #{args}"
     end
   end
 end
