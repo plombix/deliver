@@ -1,7 +1,8 @@
 # Delivery router ensure basic behavior of order assignment  to riders.
-# The class has been construct with a micro-service type of design 
+# The class has been construct with a micro-service type of design
 # to ensure reliance and stability over scaling .
-# However some refactorisation over those multiples select methods
+# However some refactorisation over those multiples select methods.
+
 class DeliveryRouter
   require_relative 'customer'
   require_relative 'restaurant'
@@ -60,7 +61,7 @@ class DeliveryRouter
 
   def restau_for(param)
     # find restaurant of customer's order
-     @routes.select { |x| x[:route][1].id == param[:customer] }[0][:route][0]
+    @routes.select { |x| x[:route][1].id == param[:customer] }[0][:route][0]
   end
 
   def time_to_customer(param)
